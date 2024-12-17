@@ -2,7 +2,7 @@
 #define ROBOKEN_STD_TYPE_INTEGER_H
 
 #ifndef NOT_USE_8BITS_INTEGER_TYPE_ALIAS
-using int8_t  = signed char;
+using int8_t = signed char;
 using uint8_t = unsigned char;
 #endif
 
