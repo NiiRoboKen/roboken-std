@@ -1,14 +1,17 @@
 {
   "$schema": "https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/schema/library.json",
-  "name": "platformio-library-template",
+  "name": "roboken-std",
   "version": "0.1.0",
-  "description": "",
+  "description": "新居浜高専ロボット研究部謹製ライブラリ",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/NiiRoboKen/platformio-library-template.git"
+    "url": "https://github.com/NiiRoboKen/roboken-std.git"
   },
   "frameworks": "*",
   "platforms": "*",
-  "headers": []
+  "headers": ["roboken_std.hpp"],
+  "export": {
+    "include": ["**/*.hpp"]
+  }
 }
