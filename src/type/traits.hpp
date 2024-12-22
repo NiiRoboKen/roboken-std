@@ -12,3 +12,14 @@ struct Eq<T, T> {
 
 template <typename T, typename U>
 constexpr bool is_type_eq = Eq<T, U>::value;
+
+template <bool is_require, typename T>
+struct Require {};
+
+template <typename T>
+struct Require<true, T> {
+  using type = T;
+};
+
+template <bool is_require, typename T>
+using require_t = typename Require<is_require, T>::type;
