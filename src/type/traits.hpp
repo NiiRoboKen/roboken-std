@@ -1,25 +1,25 @@
 #pragma once
 
 template <typename T, typename U>
-struct Eq {
+struct __Eq {
   static constexpr bool value = false;
 };
 
 template <typename T>
-struct Eq<T, T> {
+struct __Eq<T, T> {
   static constexpr bool value = true;
 };
 
 template <typename T, typename U>
-constexpr bool is_type_eq = Eq<T, U>::value;
+constexpr bool is_type_eq = __Eq<T, U>::value;
 
 template <bool is_require, typename T>
-struct Require {};
+struct __Require {};
 
 template <typename T>
-struct Require<true, T> {
+struct __Require<true, T> {
   using type = T;
 };
 
 template <bool is_require, typename T>
-using require_t = typename Require<is_require, T>::type;
+using require_t = typename __Require<is_require, T>::type;
