@@ -12,4 +12,7 @@ namespace roboken {
 
 // Interface
 #include "interface/peripheral.hpp"
+
+// Robotics
+#include "robotics/pid.hpp"
 }  // namespace roboken
