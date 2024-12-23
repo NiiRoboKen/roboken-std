@@ -23,3 +23,6 @@ struct __Require<true, T> {
 
 template <bool is_require, typename T>
 using require_t = typename __Require<is_require, T>::type;
+
+template <typename T>
+struct TypeInfo {};
