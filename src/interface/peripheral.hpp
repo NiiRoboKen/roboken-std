@@ -10,12 +10,11 @@ interface Motor {
   virtual void cw(uint16_t speed) = 0;
   virtual void ccw(uint16_t speed) = 0;
   virtual void run(int32_t speed) {
-    // TODO: 16bitの範囲に収める処理
     if (speed >= 0) {
-      this->cw(speed);
+      this->cw(speed <= TypeInfo<uint16_t>::MAX ? speed : TypeInfo<uint16_t>::MAX);
     }
     else {
-      this->ccw(-speed);
+      this->ccw(-speed >= TypeInfo<uint16_t>::MIN ? speed : TypeInfo<uint16_t>::MAX);
     }
   }
 };
