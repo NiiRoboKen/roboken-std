@@ -26,3 +26,13 @@ constexpr bool is_uint_t = false
   || is_type_eq<T, uint64_t>
 #endif
   ;
+
+template <typename T>
+constexpr bool is_float_t = false
+#if !defined(CANT_USE_32BITS_FLOATING_POINT_TYPE)
+  || is_type_eq<T, float32_t>
+#endif
+#if !defined(CANT_USE_64BITS_FLOATING_POINT_TYPE)
+  || is_type_eq<T, float64_t>
+#endif
+  ;
