@@ -45,3 +45,6 @@ using int_t = require_t<is_int_t<T>, T>;
 
 template <typename T>
 using uint_t = require_t<is_uint_t<T>, T>;
+
+template <typename T>
+using float_t = require_t<is_float_t<T>, T>;
