@@ -6,4 +6,7 @@ namespace roboken {
 #include "type/numeric.hpp"
 #include "type/numeric_traits.hpp"
 #include "type/assert.hpp"
+
+// Math
+#include "math/functions.hpp"
 }
