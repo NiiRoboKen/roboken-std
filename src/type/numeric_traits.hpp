@@ -39,3 +39,6 @@ constexpr bool is_float_t = false
 
 template <typename T>
 constexpr bool is_numeric_t = is_int_t<T> || is_uint_t<T> || is_float_t<T>;
+
+template <typename T>
+using int_t = require_t<is_int_t<T>, T>;
