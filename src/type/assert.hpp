@@ -2,7 +2,7 @@
 
 #include "numeric.hpp"
 
-void __assert_int_t_bytes() {
+void __assert_int_t_size() {
   static_assert(sizeof(int8_t) == 1, "int8_t is not 1byte in this environment");
   static_assert(sizeof(int16_t) == 2,
                 "int16_t is not 2byte in this environment");
@@ -15,7 +15,7 @@ void __assert_int_t_bytes() {
                 "int64_t is not 8byte in this environment");
 #endif
 }
-void __assert_uint_t_bytes() {
+void __assert_uint_t_size() {
   static_assert(sizeof(uint8_t) == 1,
                 "uint8_t is not 1byte in this environment");
   static_assert(sizeof(uint16_t) == 2,
@@ -30,7 +30,7 @@ void __assert_uint_t_bytes() {
 #endif
 }
 
-void __assert_float_t_bytes() {
+void __assert_float_t_size() {
 #if !defined(CANT_USE_32BITS_FLOATING_POINT_TYPE)
   static_assert(sizeof(float32_t) == 4,
                 "float32_t is not 4byte in this environment");
@@ -42,7 +42,7 @@ void __assert_float_t_bytes() {
 }
 
 void assert_type_size() {
-  __assert_int_t_bytes();
-  __assert_uint_t_bytes();
-  __assert_float_t_bytes();
+  __assert_int_t_size();
+  __assert_uint_t_size();
+  __assert_float_t_size();
 }
