@@ -36,3 +36,6 @@ constexpr bool is_float_t = false
   || is_type_eq<T, float64_t>
 #endif
   ;
+
+template <typename T>
+constexpr bool is_numeric_t = is_int_t<T> || is_uint_t<T> || is_float_t<T>;
