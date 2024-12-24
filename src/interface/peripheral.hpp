@@ -13,7 +13,7 @@ interface Motor {
       this->cw(speed <= TypeInfo<uint16_t>::MAX ? speed
                                                 : TypeInfo<uint16_t>::MAX);
     } else {
-      this->ccw(-speed >= TypeInfo<uint16_t>::MIN ? speed
+      this->ccw(-speed <= TypeInfo<uint16_t>::MAX ? -speed
                                                   : TypeInfo<uint16_t>::MAX);
     }
   }
