@@ -2,7 +2,7 @@
 
 #include "../type/numeric.hpp"
 #include "../type/numeric_traits.hpp"
-#include "../util.hpp"
+#include "../macros.hpp"
 
 interface Motor {
   // NOTE: ロボコンでは分解能は16bitで十分と思われる
