@@ -15,4 +15,7 @@ namespace roboken {
 
 // Robotics
 #include "robotics/pid.hpp"
+
+// Utils
+#include "utils/bitset.hpp"
 }  // namespace roboken
