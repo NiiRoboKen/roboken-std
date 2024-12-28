@@ -10,3 +10,14 @@ uint_t<T> factorial(uint_t<T> n) {
   }
   return x;
 }
+
+template <typename T>
+uint_t<T> pow(uint_t<T> x, uint_t<T> n) {
+  uint_t<T> ret = 1;
+  while (n > 0) {
+    if (n & 1) ret *= x;
+    x *= x;
+    n >>= 1;
+  }
+  return ret;
+}
