@@ -9,6 +9,7 @@ namespace roboken {
 
 // Math
 #include "math/functions.hpp"
+#include "math/constant.hpp"
 
 // Interface
 #include "interface/peripheral.hpp"
