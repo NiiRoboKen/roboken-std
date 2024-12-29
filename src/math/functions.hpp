@@ -28,3 +28,17 @@ numeric_t<T> pow(numeric_t<T> x, integral_t<U> n) {
   if(n < 0) return 1 / ret;
   return ret;
 }
+
+template <typename T, uint8_t MAX>
+float_t<T> sin(float_t<T> x) {
+  float_t<T> result = x;
+  float_t<T> term = x;
+  for (uint8_t i = 1; MAX > i; i++) {
+    term *= -(x * x) / (4. * (i * i) + 2. * i);
+    if (result == result + term) {
+      return result;
+    }
+    result += term;
+  }
+  return result;
+}
