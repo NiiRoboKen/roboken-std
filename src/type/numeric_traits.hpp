@@ -34,6 +34,12 @@ constexpr bool is_float_t = false
     ;
 
 template <typename T>
+constexpr bool is_integral_t = is_int_t<T> || is_uint_t<T>;
+
+template <typename T>
+constexpr bool is_numeric_t = is_integral_t<T> || is_float_t<T>;
+
+template <typename T>
 using int_t = require_t<is_int_t<T>, T>;
 
 template <typename T>
@@ -41,6 +47,12 @@ using uint_t = require_t<is_uint_t<T>, T>;
 
 template <typename T>
 using float_t = require_t<is_float_t<T>, T>;
+
+template <typename T>
+using integral_t = require_t<is_integral_t<T>, T>;
+
+template <typename T>
+using numeric_t = require_t<is_numeric_t<T>, T>;
 
 template <>
 struct TypeInfo<int8_t> {
