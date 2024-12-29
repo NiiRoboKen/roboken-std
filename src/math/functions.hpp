@@ -10,3 +10,8 @@ uint_t<T> factorial(uint_t<T> n) {
   }
   return x;
 }
+
+template <typename T>
+float_t<T> abs(float_t<T> n) {
+  return n > 0 ? n : -n;
+}
