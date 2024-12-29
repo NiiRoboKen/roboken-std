@@ -15,3 +15,16 @@ template <typename T>
 numeric_t<T> abs(numeric_t<T> n) {
   return n > 0 ? n : -n;
 }
+
+template <typename T, typename U>
+numeric_t<T> pow(numeric_t<T> x, integral_t<U> n) {
+  numeric_t<T> ret = 1;
+  integral_t<U> number = abs<U>(n);
+  while (number > 0) {
+    if (number & 1) ret *= x;
+    x *= x;
+    number >>= 1;
+  }
+  if(n < 0) return 1.0 / ret;
+  return ret;
+}
