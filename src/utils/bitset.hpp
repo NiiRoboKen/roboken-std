@@ -5,7 +5,6 @@
 
 template <typename T>
 class BitSet {
- private:
  public:
   static bool get(T *value, uint8_t index) { return *value & (1 << index); }
   static void set(T *value, uint8_t index, bool state) {
