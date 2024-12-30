@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../type/numeric_traits.hpp"
+#include "constant.hpp"
 
 template <typename T>
 uint_t<T> factorial(uint_t<T> n) {
@@ -41,4 +42,9 @@ float_t<T> sin(float_t<T> x) {
     result += term;
   }
   return result;
+}
+
+template <typename T, uint8_t MAX>
+inline float_t<T> cos(float_t<T> x) {
+  return sin<T, MAX>(x - (PI<T> / 2));
 }
