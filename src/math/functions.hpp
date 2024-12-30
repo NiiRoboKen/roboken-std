@@ -53,3 +53,8 @@ template <typename T, uint8_t MAX>
 inline float_t<T> cos(float_t<T> x) {
   return sin<T, MAX>(x - radian<T>(90));
 }
+
+template <typename T, uint8_t MAX>
+inline float_t<T> tan(float_t<T> x) {
+  return sin<T, MAX>(x) / cos<T, MAX>(x);
+}
