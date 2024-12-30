@@ -26,7 +26,7 @@ numeric_t<T> pow(numeric_t<T> x, integral_t<U> n) {
     x *= x;
     number >>= 1;
   }
-  if(n < 0) return 1 / ret;
+  if (n < 0) return 1 / ret;
   return ret;
 }
 
