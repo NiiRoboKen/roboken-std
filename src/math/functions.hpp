@@ -4,7 +4,7 @@
 #include "constant.hpp"
 
 template <typename T>
-T factorial(uint_t<T> n) {
+constexpr T factorial(uint_t<T> n) {
   T x = 1;
   for (T i = 2; i <= n; i++) {
     x *= i;
@@ -13,12 +13,12 @@ T factorial(uint_t<T> n) {
 }
 
 template <typename T>
-T abs(numeric_t<T> n) {
+constexpr T abs(numeric_t<T> n) {
   return n > 0 ? n : -n;
 }
 
 template <typename T, typename U>
-T pow(numeric_t<T> x, integral_t<U> n) {
+constexpr T pow(numeric_t<T> x, integral_t<U> n) {
   T ret = 1;
   U number = abs<U>(n);
   while (number > 0) {
@@ -36,7 +36,7 @@ constexpr T radian(float_t<T> degree) {
 }
 
 template <typename T, uint8_t MAX>
-T sin(float_t<T> x) {
+constexpr T sin(float_t<T> x) {
   T result = x;
   T term = x;
   for (uint8_t i = 1; MAX > i; i++) {
@@ -50,11 +50,11 @@ T sin(float_t<T> x) {
 }
 
 template <typename T, uint8_t MAX>
-inline T cos(float_t<T> x) {
+inline constexpr T cos(float_t<T> x) {
   return sin<T, MAX>(x + radian<T>(90));
 }
 
 template <typename T, uint8_t MAX>
-inline T tan(float_t<T> x) {
+inline constexpr T tan(float_t<T> x) {
   return sin<T, MAX>(x) / cos<T, MAX>(x);
 }
