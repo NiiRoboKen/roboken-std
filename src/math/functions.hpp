@@ -30,6 +30,23 @@ constexpr T pow(numeric_t<T> x, integral_t<U> n) {
   return ret;
 }
 
+template <typename T, uint8_t MAX>
+constexpr T rsqrt(float_t<T> x, float_t<T> tolerance = 1e-6) {
+  //TODO: 引き数が0もしくは負の値の時の処理
+  if (x <= 0) {
+    return -1;
+  }
+
+  float x_n = 1 / x;
+
+  for (uint8_t i = 0; i < MAX; i++) {
+    if(abs(x_n - x_n * (1.5 - 0.5 * x * x_n * x_n)) < tolerance) return x_n;
+    x_n = x_n * (1.5 - 0.5 * x * x_n * x_n);
+  }
+
+  return x_n;
+}
+
 template <typename T>
 constexpr T radian(float_t<T> degree) {
   return degree / 180. * PI<T>;
