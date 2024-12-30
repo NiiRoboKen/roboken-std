@@ -30,6 +30,11 @@ numeric_t<T> pow(numeric_t<T> x, integral_t<U> n) {
   return ret;
 }
 
+template <typename T>
+constexpr float_t<T> radian(float_t<T> degree) {
+  return degree / 180. * PI<T>;
+}
+
 template <typename T, uint8_t MAX>
 float_t<T> sin(float_t<T> x) {
   float_t<T> result = x;
@@ -47,9 +52,4 @@ float_t<T> sin(float_t<T> x) {
 template <typename T, uint8_t MAX>
 inline float_t<T> cos(float_t<T> x) {
   return sin<T, MAX>(x - radian<T>(90));
-}
-
-template <typename T>
-constexpr float_t<T> radian(float_t<T> degree) {
-  return degree / 180. * PI<T>;
 }
