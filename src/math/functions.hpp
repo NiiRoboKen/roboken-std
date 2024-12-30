@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../type/numeric_traits.hpp"
+#include "constant.hpp"
 
 template <typename T>
 uint_t<T> factorial(uint_t<T> n) {
@@ -25,6 +26,35 @@ numeric_t<T> pow(numeric_t<T> x, integral_t<U> n) {
     x *= x;
     number >>= 1;
   }
-  if(n < 0) return 1 / ret;
+  if (n < 0) return 1 / ret;
   return ret;
+}
+
+template <typename T>
+constexpr float_t<T> radian(float_t<T> degree) {
+  return degree / 180. * PI<T>;
+}
+
+template <typename T, uint8_t MAX>
+float_t<T> sin(float_t<T> x) {
+  float_t<T> result = x;
+  float_t<T> term = x;
+  for (uint8_t i = 1; MAX > i; i++) {
+    term *= -(x * x) / (4. * (i * i) + 2. * i);
+    if (result == result + term) {
+      return result;
+    }
+    result += term;
+  }
+  return result;
+}
+
+template <typename T, uint8_t MAX>
+inline float_t<T> cos(float_t<T> x) {
+  return sin<T, MAX>(x + radian<T>(90));
+}
+
+template <typename T, uint8_t MAX>
+inline float_t<T> tan(float_t<T> x) {
+  return sin<T, MAX>(x) / cos<T, MAX>(x);
 }

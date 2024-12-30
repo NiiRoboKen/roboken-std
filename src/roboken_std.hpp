@@ -8,6 +8,7 @@ namespace roboken {
 #include "type/traits.hpp"
 
 // Math
+#include "math/constant.hpp"
 #include "math/functions.hpp"
 
 // Interface
