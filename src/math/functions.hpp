@@ -31,20 +31,21 @@ constexpr T pow(numeric_t<T> x, integral_t<U> n) {
 }
 
 template <typename T, uint8_t MAX>
-constexpr T rsqrt(float_t<T> x, float_t<T> tolerance = 1e-6) {
+constexpr T rsqrt(float_t<T> s, float_t<T> tolerance = 1e-6) {
   //TODO: 引き数が0もしくは負の値の時の処理
-  if (x <= 0) {
+  if (s <= 0) {
     return -1;
   }
 
-  T x_n = x >= 1 ? 1 / x : 1;
+  T x = s >= 1 ? 1 / s : 1;
 
   for (uint8_t i = 0; i < MAX; i++) {
-    if(abs<T>(x_n - x_n * (1.5 - 0.5 * x * x_n * x_n)) < tolerance) return x_n;
-    x_n = x_n * (1.5 - 0.5 * x * x_n * x_n);
+    T next_x = x * (1.5 - 0.5 * s * x * x);
+    if(abs<T>(next_x - x) < tolerance) return next_x;
+    x = next_x;
   }
 
-  return x_n;
+  return x;
 }
 
 template <typename T, uint8_t MAX>
