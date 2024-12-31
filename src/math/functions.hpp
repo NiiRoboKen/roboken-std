@@ -32,7 +32,6 @@ constexpr T pow(numeric_t<T> x, integral_t<U> n) {
 
 template <typename T, uint8_t MAX>
 constexpr T rsqrt(float_t<T> s, float_t<T> tolerance = 1e-6) {
-  //TODO: 引き数が0もしくは負の値の時の処理
   if (s <= 0) {
     return -1;
   }
