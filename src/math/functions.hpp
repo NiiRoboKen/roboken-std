@@ -37,7 +37,7 @@ constexpr T rsqrt(float_t<T> x, float_t<T> tolerance = 1e-6) {
     return -1;
   }
 
-  float x_n = 1 / x;
+  T x_n = x >= 1 ? 1 / x : 1;
 
   for (uint8_t i = 0; i < MAX; i++) {
     if(abs<T>(x_n - x_n * (1.5 - 0.5 * x * x_n * x_n)) < tolerance) return x_n;
