@@ -40,7 +40,7 @@ constexpr T rsqrt(float_t<T> x, float_t<T> tolerance = 1e-6) {
   float x_n = 1 / x;
 
   for (uint8_t i = 0; i < MAX; i++) {
-    if(abs(x_n - x_n * (1.5 - 0.5 * x * x_n * x_n)) < tolerance) return x_n;
+    if(abs<T>(x_n - x_n * (1.5 - 0.5 * x * x_n * x_n)) < tolerance) return x_n;
     x_n = x_n * (1.5 - 0.5 * x * x_n * x_n);
   }
 
