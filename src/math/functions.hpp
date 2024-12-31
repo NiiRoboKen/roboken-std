@@ -30,6 +30,40 @@ constexpr T pow(numeric_t<T> x, integral_t<U> n) {
   return ret;
 }
 
+template <typename T, uint8_t MAX>
+constexpr T rsqrt(float_t<T> s, float_t<T> tolerance = 1e-6) {
+  if (s <= 0) {
+    return -1;
+  }
+
+  T x = s >= 1 ? 1 / s : 1;
+
+  for (uint8_t i = 0; i < MAX; i++) {
+    T next_x = x * (1.5 - 0.5 * s * x * x);
+    if(abs<T>(next_x - x) < tolerance) return next_x;
+    x = next_x;
+  }
+
+  return x;
+}
+
+template <typename T, uint8_t MAX>
+constexpr T sqrt(float_t<T> s, float_t<T> tolerance = 1e-6) {
+  if (s <= 0) {
+    return -1;
+  }
+
+  T x = s >= 1 ? s : 1;
+
+  for (uint8_t i = 0; i < MAX; i++) {
+    T next_x = 0.5 * (x + s / x);
+    if(abs<T>(next_x - x) < tolerance) return next_x;
+    x = next_x;
+  }
+
+  return x;
+}
+
 template <typename T>
 constexpr T radian(float_t<T> degree) {
   return degree / 180. * PI<T>;
