@@ -48,8 +48,20 @@ constexpr T rsqrt(float_t<T> s, float_t<T> tolerance = 1e-6) {
 }
 
 template <typename T, uint8_t MAX>
-constexpr T sqrt(float_t<T> x) {
-  return 1 / rsqrt<T, MAX>(x);
+constexpr T sqrt(float_t<T> s, float_t<T> tolerance = 1e-6) {
+  if (s <= 0) {
+    return -1;
+  }
+
+  T x = s >= 1 ? s : 1;
+
+  for (uint8_t i = 0; i < MAX; i++) {
+    T next_x = 0.5 * (x + s / x);
+    if(abs<T>(next_x - x) < tolerance) return next_x;
+    x = next_x;
+  }
+
+  return x;
 }
 
 template <typename T>
