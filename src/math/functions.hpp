@@ -47,6 +47,11 @@ constexpr T rsqrt(float_t<T> x, float_t<T> tolerance = 1e-6) {
   return x_n;
 }
 
+template <typename T, uint8_t MAX>
+constexpr T sqrt(float_t<T> x) {
+  return 1 / rsqrt<T, MAX>(x);
+}
+
 template <typename T>
 constexpr T radian(float_t<T> degree) {
   return degree / 180. * PI<T>;
