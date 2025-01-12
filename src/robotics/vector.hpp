@@ -5,7 +5,7 @@
 template <typename T>
 class Vector2 {
     using U = float_t<T>;
-    
+
     public:
     Vector2(U x, U y) {
         this->x = x;
@@ -17,8 +17,8 @@ class Vector2 {
     U get_y() {
         return this->y;
     }
-    U magnitude() {
-        return sqrt(this->x * this->x + this->y * this->y); 
+    U size() {
+        return sqrt<U, 50>(this->x * this->x + this->y * this->y); 
     }
     U dot_product(Vector2 *vec) {
         return this->x * vec->x + this->y * vec->y;
