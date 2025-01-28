@@ -9,7 +9,7 @@ class Omuni {
     public:
     Omuni(Motor *motor, U radian) {
         this->motor = motor;
-        this->degree = radian;
+        this->radian = radian;
     }
     void move(uint16_t x, uint16_t y) {
         this->motor->run(cos<U, 25>(this->radian) * x + sin<U, 25>(this->radian) * y);
