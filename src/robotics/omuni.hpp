@@ -13,7 +13,7 @@ class Omuni {
     }
     template<uint8_t MAX>
     void move(int32_t x, int32_t y) {
-        this->motor->run(cos<U, 25>(this->radian) * x + sin<U, 25>(this->radian) * y);
+        this->motor->run(cos<U, MAX>(this->radian) * x + sin<U, MAX>(this->radian) * y);
     }
     private:
     Motor *motor;
