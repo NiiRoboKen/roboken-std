@@ -17,6 +17,7 @@ namespace roboken {
 // Robotics
 #include "robotics/pid.hpp"
 #include "robotics/vector.hpp"
+#include "robotics/omuni.hpp"
 
 // Utils
 #include "utils/bitset.hpp"
